@@ -1,12 +1,17 @@
-"use client"
 import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
 import GalleryGrid from "@/components/gallery-grid"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { experimentalWorks } from "@/lib/artwork-data"
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const category = experimentalWorks[params.category as keyof typeof experimentalWorks]
+export default async function CategoryPage({ params }: { params: { category: string } | Promise<{ category: string }> }) {
+  // `params` may be a Promise in this Next.js runtime — await it before use.
+  const resolvedParams = await params
+
+  // Server-side debug: log the incoming category param (check dev terminal)
+  console.log("[experimental]/[category] params.category:", resolvedParams?.category)
+
+  const category = experimentalWorks[resolvedParams.category as keyof typeof experimentalWorks]
 
   if (!category) {
     return (
@@ -17,7 +22,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
   }
 
   const artworks = category.images.map((img) => ({
-    id: `${params.category}-${img.id}`,
+    id: `${resolvedParams.category}-${img.id}`,
     title: img.title,
     series: category.title,
     media: category.media,

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Image from "next/image"
 import ArtworkModal from "./artwork-modal"
 import { ScrollAnimation } from "./scroll-animations"
@@ -21,6 +21,29 @@ interface GalleryGridProps {
 
 export default function GalleryGrid({ images }: GalleryGridProps) {
   const [selectedArtwork, setSelectedArtwork] = useState<GalleryImage | null>(null)
+
+  // Sort images by filename index if `imagePath` is present (e.g. "/static/Paintings/1.jpg").
+  // Falls back to `id` or `title` when no numeric index can be derived.
+  const sortedImages = useMemo(() => {
+    const getKey = (img: GalleryImage) => {
+      if (img.imagePath) {
+        const name = img.imagePath.split("/").pop() || ""
+        const base = name.split(".")[0] || name
+        // extract number if present, otherwise return the base string
+        const num = parseInt(base.replace(/\D/g, ""), 10)
+        return isNaN(num) ? base : num
+      }
+      return img.id ?? img.title
+    }
+
+    return [...images].sort((a, b) => {
+      const ka = getKey(a)
+      const kb = getKey(b)
+
+      if (typeof ka === "number" && typeof kb === "number") return ka - kb
+      return String(ka).localeCompare(String(kb))
+    })
+  }, [images])
 
   return (
     <>

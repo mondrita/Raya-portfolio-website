@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight } from "lucide-react"
-import GalleryGrid from "@/components/gallery-grid"
+import GalleryGrid from "@/components/gallery-grid-2"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { panoramaWorks } from "@/lib/artwork-data"
 
@@ -29,7 +29,7 @@ export default function Panorama() {
       </section>
 
       {/* Featured Panorama */}
-      <section className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* <section className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <ScrollAnimation animation="scale-in" threshold={0.3}>
           <div className="aspect-[16/6] bg-muted rounded-lg border border-border overflow-hidden">
             <div className="w-full h-full bg-gradient-to-br from-accent/5 to-accent/10 flex items-center justify-center">
@@ -70,18 +70,18 @@ export default function Panorama() {
             </button>
           </div>
         </ScrollAnimation>
-      </section>
+      </section> */}
 
       {/* All Panorama Works Grid */}
       <section className="max-w-5xl mx-auto px-6 py-16 border-t border-border">
         <ScrollAnimation animation="fade-in-up">
           <h2 className="text-2xl font-light text-primary mb-8">All Works</h2>
         </ScrollAnimation>
-        <GalleryGrid images={panoramaData} />
+        <GalleryGrid images={panoramaData} layout="panorama" />
       </section>
 
       {/* Process Note */}
-      <section className="max-w-5xl mx-auto px-6 py-16 border-t border-border bg-muted/30 rounded-lg p-8">
+      {/* <section className="max-w-5xl mx-auto px-6 py-16 border-t border-border bg-muted/30 rounded-lg p-8">
         <ScrollAnimation animation="fade-in-up" threshold={0.4}>
           <h3 className="text-lg font-light text-primary mb-4">About This Series</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
@@ -91,7 +91,7 @@ export default function Panorama() {
             that encourages movement and discovery.
           </p>
         </ScrollAnimation>
-      </section>
+      </section> */}
     </main>
   )
 }

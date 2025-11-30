@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import GalleryGrid from "@/components/gallery-grid"
@@ -18,6 +19,14 @@ export default function ExperimentalWorks() {
     media: data.media,
     year: data.year,
   }))
+
+  // Map category keys to their cover images
+  const categoryImages: Record<string, string> = {
+    "distorted-mind": "/mind.jpg",
+    "dream-montage": "/self.jpg",
+    "number-three": "/three.jpg",
+    rickshaw: "/rik.jpg",
+  }
 
   return (
     <main className="pt-24 pb-20">
@@ -48,12 +57,14 @@ export default function ExperimentalWorks() {
                     activeCategory === category.id ? "border-accent" : "border-border"
                   } hover:border-accent`}
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-accent/5 to-accent/10 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-4xl font-light text-accent/30 mb-2">{category.imageCount}</div>
-                      <div className="text-xs text-muted-foreground">Works</div>
-                    </div>
-                  </div>
+                  <Image
+                    src={categoryImages[category.id] || "/placeholder.svg"}
+                    alt={category.title}
+                    width={400}
+                    height={225}
+                    className="w-full h-full object-cover"
+                    quality={75}
+                  />
                 </div>
 
                 <div className="space-y-2">
@@ -85,7 +96,7 @@ export default function ExperimentalWorks() {
       </section>
 
       {/* Featured Works Preview */}
-      <section className="max-w-5xl mx-auto px-6 py-16 border-t border-border">
+      {/* <section className="max-w-5xl mx-auto px-6 py-16 border-t border-border">
         <ScrollAnimation animation="fade-in-up">
           <h2 className="text-heading text-primary mb-12">Selected Pieces</h2>
         </ScrollAnimation>
@@ -147,7 +158,7 @@ export default function ExperimentalWorks() {
             },
           ]}
         />
-      </section>
+      </section> */}
     </main>
   )
 }
