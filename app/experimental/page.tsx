@@ -22,10 +22,10 @@ export default function ExperimentalWorks() {
 
   // Map category keys to their cover images
   const categoryImages: Record<string, string> = {
-    "distorted-mind": "/mind.jpg",
-    "dream-montage": "/self.jpg",
-    "number-three": "/three.jpg",
-    rickshaw: "/rik.jpg",
+    "distorted-mind": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528544/mind_cpmkbf.jpg",
+    "dream-montage": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528705/self_xi2uah.jpg",
+    "number-three": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528547/three_vswrg1.jpg",
+    "rickshaw": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528553/rik_vef2p8.jpg",
   }
 
   return (

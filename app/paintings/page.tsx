@@ -13,7 +13,7 @@ export default function Paintings() {
   }))
 
   return (
-    <main className="pt-24 pb-20">
+    <main className="pb-20">
       {/* Header */}
       <section className="max-w-5xl mx-auto px-6 py-12">
         <ScrollAnimation animation="fade-in-up">

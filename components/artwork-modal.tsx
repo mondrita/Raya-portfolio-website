@@ -49,7 +49,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 pointer-events-auto"
       onClick={onClose}
     >
       <div
@@ -124,21 +124,21 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
             )}
 
             {/* Metadata Grid - Now displays all details correctly */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-lg bg-muted/50 p-3">
-                <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Series</span>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Series</span>
                 <span className="mt-1 block text-sm font-medium text-foreground">{artwork.series}</span>
               </div>
-              <div className="rounded-lg bg-muted/50 p-3">
-                <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Year</span>
+              <div>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Year</span>
                 <span className="mt-1 block text-sm font-medium text-foreground">{artwork.year}</span>
               </div>
-              <div className="rounded-lg bg-muted/50 p-3">
-                <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Medium</span>
+              <div>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Medium</span>
                 <span className="mt-1 block text-sm font-medium text-foreground">{artwork.media}</span>
               </div>
-              <div className="rounded-lg bg-muted/50 p-3">
-                <span className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">Size</span>
+              <div>
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Size</span>
                 <span className="mt-1 block text-sm font-medium text-foreground">{artwork.size}</span>
               </div>
             </div>
