@@ -8,8 +8,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
+    { href: "/", label: "About" },
     { href: "/experimental", label: "Experimental" },
     { href: "/paintings", label: "Paintings" },
     { href: "/panorama", label: "Panorama" },
