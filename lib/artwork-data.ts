@@ -20,8 +20,8 @@ export const experimentalWorks = {
       { id: 1, title: "Dream Fragment I", path: "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764527039/1_zmedgx.jpg" },
       { id: 2, title: "Dream Fragment II", path: "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764527041/2_g7cemt.jpg" },
       { id: 3, title: "Dream Fragment III", path: "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764527042/3_v76enw.jpg" },
-      { id: 4, title: "Dream Sequence", path: "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764527040/4_j1kstw.jpg" },
-      { id: 4, title: "Dream Sequence video", path: "https://res.cloudinary.com/dwe69wcqm/video/upload/v1764527041/vid_jie8bc.mp4"}
+      { id: 4, title: "Dream Sequence", path: "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764527040/4_j1kstw.jpg" }
+      // { id: 4, title: "Dream Sequence video", path: "https://res.cloudinary.com/dwe69wcqm/video/upload/v1764527041/vid_jie8bc.mp4"}
     ],
     media: "Gouache, Ink and Charcoal",
     size: "2ft × 10ft",

@@ -48,7 +48,7 @@ export default function Footer() {
                 rayamadhubanti@gmail.com
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/madhubanti_rayart?igsh=MWN5d291djF0dnNlaQ=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"

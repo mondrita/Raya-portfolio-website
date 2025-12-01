@@ -14,9 +14,9 @@ export default function Panorama() {
   }))
 
   return (
-    <main className="pt-24 pb-20">
+    <main className="pb-20">
       {/* Header */}
-      <section className="max-w-5xl mx-auto px-6 py-12">
+      {/* <section className="max-w-5xl mx-auto px-6 py-12">
         <ScrollAnimation animation="fade-in-up">
           <h1 className="text-heading text-primary mb-2">Panorama Works</h1>
           <div className="w-12 h-1 bg-accent mb-6" />
@@ -26,7 +26,7 @@ export default function Panorama() {
             continuous visual flow.
           </p>
         </ScrollAnimation>
-      </section>
+      </section> */}
 
       {/* Featured Panorama */}
       {/* <section className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

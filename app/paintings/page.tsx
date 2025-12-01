@@ -15,16 +15,16 @@ export default function Paintings() {
   return (
     <main className="pb-20">
       {/* Header */}
-      <section className="max-w-5xl mx-auto px-6 py-12">
+      {/* <section className="max-w-5xl mx-auto px-6 py-12">
         <ScrollAnimation animation="fade-in-up">
           <h1 className="text-heading text-primary mb-2">Paintings</h1>
           <div className="w-12 h-1 bg-accent mb-6" />
           <p className="text-body text-muted-foreground max-w-3xl">
-            A collection of paintings in acrylic, ink, gouache, and mixed media. These works explore emotions, memories,
+            Aaaa collection of paintings in acrylic, ink, gouache, and mixed media. These works explore emotions, memories,
             and the spaces that shape my artistic practice. Each piece represents a moment of discovery and reflection.
           </p>
         </ScrollAnimation>
-      </section>
+      </section> */}
 
       {/* Featured Painting */}
       {/* <section className="max-w-5xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

@@ -1,6 +1,6 @@
 import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
-import GalleryGrid from "@/components/gallery-grid"
+import GalleryGrid from "@/components/gallery-grid-3"
 import { ScrollAnimation } from "@/components/scroll-animations"
 import { experimentalWorks } from "@/lib/artwork-data"
 
