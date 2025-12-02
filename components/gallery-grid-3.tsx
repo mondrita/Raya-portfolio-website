@@ -13,6 +13,8 @@ interface GalleryImage {
   size: string
   year: number
   imagePath?: string
+  path?: string
+  order?: number
 }
 
 interface GalleryGridProps {
@@ -22,17 +24,32 @@ interface GalleryGridProps {
 export default function GalleryGrid({ images }: GalleryGridProps) {
   const [selectedImagePath, setSelectedImagePath] = useState<string | null>(null)
 
-  // Sort images by filename index if `imagePath` is present (e.g. "/static/Paintings/1.jpg").
-  // Falls back to `id` or `title` when no numeric index can be derived.
+  // Sort images by explicit `order` field first, then by filename index (from imagePath or path),
+  // then numeric id, then fallback to id/title string comparison.
   const sortedImages = useMemo(() => {
+    const extractNumberFromPath = (p: string | undefined) => {
+      if (!p) return NaN
+      const name = p.split("/").pop() || ""
+      const base = name.split(".")[0] || name
+      const num = parseInt(base.replace(/\D/g, ""), 10)
+      return isNaN(num) ? NaN : num
+    }
+
     const getKey = (img: GalleryImage) => {
-      if (img.imagePath) {
-        const name = img.imagePath.split("/").pop() || ""
-        const base = name.split(".")[0] || name
-        // extract number if present, otherwise return the base string
-        const num = parseInt(base.replace(/\D/g, ""), 10)
-        return isNaN(num) ? base : num
-      }
+      if (typeof img.order === "number") return img.order
+
+      const numFromImagePath = extractNumberFromPath(img.imagePath)
+      if (!isNaN(numFromImagePath)) return numFromImagePath
+
+      // also check `path` (some data uses `path`)
+      // @ts-ignore - path may exist on data
+      const numFromPath = extractNumberFromPath((img as any).path)
+      if (!isNaN(numFromPath)) return numFromPath
+
+      // if id contains digits, use that
+      const idNum = parseInt(String(img.id).replace(/\D/g, ""), 10)
+      if (!isNaN(idNum)) return idNum
+
       return img.id ?? img.title
     }
 
@@ -48,7 +65,7 @@ export default function GalleryGrid({ images }: GalleryGridProps) {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {images.map((image, index) => {
+        {sortedImages.map((image, index) => {
           const imageSource =
             image.imagePath ||
             image.path ||

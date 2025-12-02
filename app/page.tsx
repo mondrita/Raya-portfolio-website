@@ -35,7 +35,7 @@ export default function Home() {
       period: "2023 - 2025",
     },
     {
-      degree: "BFA in Painting",
+      degree: "BFA in Drawing and Painting",
       institution: "University of Dhaka",
       location: "Dhaka, Bangladesh",
       period: "2017 - 2021",
@@ -81,7 +81,7 @@ export default function Home() {
             <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
               {/* Artist Image */}
               <div className="flex-shrink-0 lg:w-72">
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg shadow-lg">
+                <div className="relative aspect-square w-full overflow-hidden rounded-lg shadow-lg">
                   <Image
                     src={artistProfile.profileImage || "/placeholder.svg?height=400&width=300&query=artist portrait"}
                     alt={artistProfile.name}
@@ -249,26 +249,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Stats Highlights */}
-      {/* <section className="px-4 py-10 md:px-8 lg:px-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            {[
-              { number: "4", label: "Experimental Series" },
-              { number: "8+", label: "Major Exhibitions" },
-              { number: "3", label: "Art Collections" },
-            ].map((stat, index) => (
-              <ScrollAnimation key={stat.label} animation="scale-in" delay={index * 80}>
-                <div className="text-center">
-                  <span className="text-4xl font-bold text-primary">{stat.number}</span>
-                  <span className="mt-1 block text-sm text-muted-foreground">{stat.label}</span>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Call to Action */}
       <section className="bg-secondary px-4 py-12 md:px-8 lg:px-16">

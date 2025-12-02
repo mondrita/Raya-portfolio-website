@@ -22,8 +22,8 @@ export default function ExperimentalWorks() {
 
   // Map category keys to their cover images
   const categoryImages: Record<string, string> = {
-    "distorted-mind": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528544/mind_cpmkbf.jpg",
-    "dream-montage": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528705/self_xi2uah.jpg",
+    "distorted-mind": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528705/self_xi2uah.jpg",
+    "dream-montage": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528544/mind_cpmkbf.jpg",
     "number-three": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528547/three_vswrg1.jpg",
     "rickshaw": "https://res.cloudinary.com/dwe69wcqm/image/upload/v1764528553/rik_vef2p8.jpg",
   }
@@ -37,7 +37,7 @@ export default function ExperimentalWorks() {
           <div className="w-12 h-1 bg-accent mb-6" />
           <p className="text-body text-muted-foreground max-w-3xl">
             A collection of exploratory series that challenge my artistic process. These works emerge from concepts and
-            emotions, pushing the boundaries of material and technique.
+            emotions.
           </p>
         </ScrollAnimation>
       </section>

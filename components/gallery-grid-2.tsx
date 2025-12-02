@@ -16,6 +16,7 @@ interface GalleryImage {
   path?: string
   description?: string
   isVideo?: boolean
+  order?: number
 }
 
 interface GalleryGridProps {
@@ -26,12 +27,41 @@ interface GalleryGridProps {
 export default function GalleryGrid({ images, layout = "grid" }: GalleryGridProps) {
   const [selectedArtwork, setSelectedArtwork] = useState<GalleryImage | null>(null)
 
+  // sort consistently across layouts using optional `order`, then filename, then id
+  const sortedImages = (() => {
+    const extractNumberFromPath = (p: string | undefined) => {
+      if (!p) return NaN
+      const name = p.split("/").pop() || ""
+      const base = name.split(".")[0] || name
+      const num = parseInt(base.replace(/\D/g, ""), 10)
+      return isNaN(num) ? NaN : num
+    }
+
+    const getKey = (img: GalleryImage) => {
+      if (typeof img.order === "number") return img.order
+      const numFromImagePath = extractNumberFromPath(img.imagePath)
+      if (!isNaN(numFromImagePath)) return numFromImagePath
+      const numFromPath = extractNumberFromPath(img.path)
+      if (!isNaN(numFromPath)) return numFromPath
+      const idNum = parseInt(String(img.id).replace(/\D/g, ""), 10)
+      if (!isNaN(idNum)) return idNum
+      return img.id ?? img.title
+    }
+
+    return [...images].sort((a, b) => {
+      const ka = getKey(a)
+      const kb = getKey(b)
+      if (typeof ka === "number" && typeof kb === "number") return ka - kb
+      return String(ka).localeCompare(String(kb))
+    })
+  })()
+
   if (layout === "panorama") {
     return (
       <>
         {/* Vertical stack - each image on its own row */}
         <div className="flex flex-col gap-20">
-          {images.map((image, index) => {
+          {sortedImages.map((image, index) => {
             const imageSource =
               image.imagePath ||
               image.path ||
@@ -140,7 +170,7 @@ export default function GalleryGrid({ images, layout = "grid" }: GalleryGridProp
   return (
     <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {images.map((image, index) => {
+        {sortedImages.map((image, index) => {
           const imageSource =
             image.imagePath ||
             image.path ||
