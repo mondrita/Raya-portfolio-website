@@ -94,13 +94,7 @@ vercel
 ```
 
 Or use any Node.js hosting (AWS, Railway, Render, etc.).
-
-## Contact
-
-**Artist:** Madhubanti Biswas  
-**Email:** rayamadhubanti@gmail.com  
-**Phone:** +880 1880882341  
-**Location:** Dhanmondi, Dhaka, Bangladesh
+Note: Slow image loading on Render
 
 ---
 
